@@ -12,11 +12,15 @@
 
   <body>
     <div id="app">
-      <div class="lessonContainer">
-        <div v-for="lesson in lessons" key="lesson">
-          <h1>{{lesson.topic}}</h1>
-          <h1>{{lesson.location}}</h1>
-          <h1>{{lesson.price}}</h1>
+      <div class="flex items-center justify-center space-x-2 p-2 flex-wrap">
+        <div
+          class="bg-gray-200 shadow-md text-sm p-2 rounded-lg w-40 h-20"
+          v-for="(lesson,index) in lessons"
+          :key="index"
+        >
+          <h1>Topic : {{lesson.topic}}</h1>
+          <h1>Location : {{lesson.location}}</h1>
+          <h1>£{{lesson.price}}</h1>
         </div>
       </div>
     </div>
@@ -25,12 +29,16 @@
       let store = new Vue({
         el: "#app",
         data: { lessons: {} },
-        created: function () {},
+        created: function () {
+          this.fetchLessonData();
+        },
         methods: {
           fetchLessonData() {
-            fetch("http://localhost:3000/lessons").then(function (response) {
-              response.json().then(function (json) {
-                store.lessons = json;
+            fetch("http://localhost:3000/lessons")
+            .then((response) => {
+              response.json()
+              .then((data) => {
+                store.lessons = data;
               });
             });
           },
