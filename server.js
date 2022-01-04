@@ -8,7 +8,7 @@ app.get("/lessons", function (request, response) {
     { topic: "Maths", location: "London", price: 100 },
     { topic: "Maths", location: "Liverpool", price: 80 },
     { topic: "Maths", location: "Oxford", price: 90 },
-    { topic: "Maths", location: "Bristol", price: 120 },
+    { topic: "Maths", location: "Bristol", price: 122 },
   ]);
 });
 
