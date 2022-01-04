@@ -5,20 +5,19 @@ app.use(express.static("public"));
 // Routes GET requests to /lessons to the request handler
 app.get("/lessons", function (request, response) {
   response.send([
-    { topic: "math", location: "London", price: 100 },
-    { topic: "math", location: "Liverpool", price: 80 },
-    { topic: "math", location: "Oxford", price: 90 },
-    { topic: "math", location: "Bristol", price: 120 },
+    { topic: "Maths", location: "London", price: 100 },
+    { topic: "Maths", location: "Liverpool", price: 80 },
+    { topic: "Maths", location: "Oxford", price: 90 },
+    { topic: "Maths", location: "Bristol", price: 120 },
   ]);
 });
 
-// GET requests to /users
+// GET requests to /users returns user information
 app.get("/user", function (request, response) {
   response.send({ email: "user@email.com", password: "mypassword" });
 });
 
-// if you load something other that /olivia, servers a 404 error.
-// if itsnot a GET request also servers a 404 error.
+// returning a 404 error when path is not found
 app.use(function (request, response) {
   response.status(404).send("page not found");
 });
