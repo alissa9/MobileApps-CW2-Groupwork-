@@ -1,4 +1,7 @@
-# MobileApps-CW2-Groupwork-
+# MobileApps-CW2-Groupwork
 
 To run it 
-install node modules (npm install)
+1-npm install
+2-npm start
+
+
